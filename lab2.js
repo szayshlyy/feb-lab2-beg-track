@@ -65,7 +65,6 @@ assert(blob.hoursToOoze(1000, 1) === hoursSpentInDowington,
 // TODO: write three more assertions like the two above, testing out
 // the hoursToOoze method.
 
-
 //*********************************************************
 // PROBLEM 2: Universal Translator. 20 points
 //*********************************************************
@@ -94,7 +93,7 @@ function sayHello (sb) {
     // to do the translating
 
     //TODO: put this on the SentientBeing prototype
-  };
+  }
 
 // TODO: create three SentientBeings, one for each language in the
 // 'hello' object above.
@@ -106,7 +105,6 @@ assert((new Human()).sayHello(new Klingon()) === "nuqneH",
   "the klingon should hear nuqneH");
 // TODO: write five more assertions, to complete all the possible
 // greetings between the three types of sentient beings you created above.
-
 
 //*********************************************************
 // PROBLEM 3: Moar Loops. 20 points.
@@ -134,7 +132,6 @@ function variablify(string) {
 // TODO: write three more assertions
 assert(variablify("one two three") === "oneTwoThree",
   "variablify(\"one two three\")");
-
 
 //*********************************************************
 // PROBLEM 4: Cleanup: 10 points
