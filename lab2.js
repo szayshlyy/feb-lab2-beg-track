@@ -41,30 +41,49 @@ function assert(expression, failureMessage) {
         3          |       4/hour
 
  TODO: First, make a constructor function, called Blob, that makes blobs.
-
  TODO: Next, create an instance of Blob named blob.
 
  TODO: Then, use a loop to calculate how long it took the blob to finish
  with Dowington.
 */
+function Blob(population,peoplePerHour) {
+  this.numberOfPeopleEaton = 0;
+  this.hoursSpentInTown = 0;
+  this.hoursToOoze = function() {
+    while (this.numberOfPeopleEaton < population) {
+    this.hoursSpentInTown += 1;
+    //Triangular Formula for consumption rate.
+    this.numberOfPeopleEaton = ((this.hoursSpentInTown*(this.hoursSpentInTown+1))/2)*peoplePerHour;
+      if (this.numberOfPeopleEaton >= population) {
+      console.log(this.hoursSpentInTown);
+      }
+    };
+  }
+};
 
-var hoursSpentInDowington; // TODO: assign me the value of the
+var blob = new Blob(1000,1);
+
+var hoursSpentInDowington = blob.hoursToOoze();
+
+console.log(hoursSpentInDowington);
+quit;
+///var hoursSpentInDowington; // TODO: assign me the value of the
                            // above calculation
 
 // Now, write a method that takes a population for an arbitrary
 // town, and the starting consumption rate, and returns the number
 // of hours the blob needs to ooze its way through that town.
 
-function hoursToOoze(population, peoplePerHour) {
+//function hoursToOoze(population, peoplePerHour) { This was incorporated into the method above.
   // TODO: implement me based on the instructions above. Be sure to then assign me to the Blob's prototype.
-}
+
 
 assert(blob.hoursToOoze(0, 1) === 0, "no people means no time needed.");
 assert(blob.hoursToOoze(1000, 1) === hoursSpentInDowington,
   "hoursSpentInDowington should match hoursToOoze\"s result for 1000");
 // TODO: write three more assertions like the two above, testing out
 // the hoursToOoze method.
-
+assert(hoursSpentInDowington === 45, "correct answer is 45");
 //*********************************************************
 // PROBLEM 2: Universal Translator. 20 points
 //*********************************************************
@@ -79,33 +98,42 @@ var hello = {
 // sentient beings. They have a home planet, a language that they
 // speak, and method called sayHello.
 
-function SentientBeing () {
+function SentientBeing (home,language) {
   // TODO: specify a home planet and a language
   // you'll need to add parameters to this constructor
-}
+  this.home = home;
+  this.language= language
+};
 
 // sb is a SentientBeing object
-function sayHello (sb) {
+SentientBeing.prototype.sayHello =function() {
     // TODO: say hello prints out (console.log's) hello in the
     // language of the speaker, but returns it in the language
     // of the listener (the sb parameter above).
     // use the 'hello' object at the beginning of this exercise
     // to do the translating
-
     //TODO: put this on the SentientBeing prototype
-  }
+  if (this.language === 'klingon') {
+    console.log(hello.klingon);
+  } else if (this.language === 'romulan') {
+    console.log(hello.romulan);
+  } else if (this.language === 'federation standard') {
+    console.log(hello["federation standard"]);
+  };
+}
 
 // TODO: create three SentientBeings, one for each language in the
 // 'hello' object above.
-var klingon = new SentientBeing(); // TODO: fix me
-var romulan = new SentientBeing(); // TODO: fix me
-var human = new SentientBeing(); // TODO: fix me
+var klingon = new SentientBeing("Qo\"noS", "klingon"); // TODO: fix me
+var romulan = new SentientBeing("Romulus", "romulan"); // TODO: fix me
+var human = new SentientBeing("Earth", "federation standard"); // TODO: fix me
 
-assert((new Human()).sayHello(new Klingon()) === "nuqneH",
+
+assert(human.sayHello(klingon) === "nuqneH",
   "the klingon should hear nuqneH");
 // TODO: write five more assertions, to complete all the possible
 // greetings between the three types of sentient beings you created above.
-
+quit;
 //*********************************************************
 // PROBLEM 3: Moar Loops. 20 points.
 //
